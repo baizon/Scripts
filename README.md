@@ -7,7 +7,7 @@ TODO: Write documentation.
 cleaner.sh
 ----------
 
-dropbox-update.sh
+dropbox-updater.sh
 -----------------
 
 oneconf-disabler.sh
