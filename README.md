@@ -1,12 +1,12 @@
 Scripts
 =======
-This repository contains a collection of my personal scripts.
+This repository contains a collection of my personal scripts. I use them under Ubuntu, it can be mapped on other debian-distributions.
 
 TODO: Complete documentation.
 
 cleaner.sh
 ==========
-Cleaning script for debian-based distributions (can be mapped on other distributions).
+Cleaning script:
 It contains the following cleaning components:
 - "Purging apt cache (autoclean & clean)"
 - "Removing unused apt packages (autoremove)"
