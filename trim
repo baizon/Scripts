@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# # Don't forget to update '/etc/anacrontab' after changing path!
+# Don't forget to update '/etc/anacrontab' after changing path!
 LOG=/var/log/trim.log
+DEVS="/ /home"
 
 notify-send "Trim" "Trim started."
 sudo sh -c "echo '*** $(date -R) ***' >> $LOG"
-sudo sh -c "fstrim -v / >> $LOG"
-sudo sh -c "fstrim -v /home >> $LOG"
+for i in $DEVS
+do
+ sudo sh -c "fstrim -v $i >> $LOG"
+done
 notify-send "Trim" "Trim ended."
