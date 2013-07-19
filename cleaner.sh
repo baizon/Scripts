@@ -11,6 +11,8 @@ CONF_THUMBNAILS=false
 CONF_LOGS=false
 CONF_TRASH=true
 # --------------------------------------------------------------
+COLOR_GREEN="\033[32m"
+ENDCOLOR="\033[0m"
 
 pause() {
  echo "Done."
@@ -39,26 +41,26 @@ boolTextColor "Purging trash:" $CONF_TRASH
 echo "----------------------------------------------------------"
 # Purging apt cache
 if $CONF_APT_CACHE ; then
- echo "\033[32mPurging apt cache (autoclean & clean):\033[0m"
+ echo $COLOR_GREEN"Purging apt cache (autoclean & clean):"$ENDCOLOR
  sudo apt-get autoclean
  sudo apt-get clean
 fi
 
 # Removing unused apt packages
 if $CONF_UNUSED_APT ; then
- echo "\033[32mRemoving unused apt packages (autoremove):\033[0m"
+ echo $COLOR_GREEN"Removing unused apt packages (autoremove):"$ENDCOLOR
  sudo apt-get -y autoremove
 fi
 
 # Purging old kernels
 if $CONF_OLD_KERNELS ; then
- echo "\033[32mPurging old kernels:\033[0m"
+ echo $COLOR_GREEN"Purging old kernels:"$ENDCOLOR
  dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
 fi
 
 # Localepurge (localepurge needed)
 if $CONF_LOCALEPURGE ; then
- echo "\033[32mLocalepurge:\033[0m"
+ echo $COLOR_GREEN"Localepurge:"$ENDCOLOR
  if which localepurge >/dev/null; then
   sudo localepurge
  else
@@ -68,7 +70,7 @@ fi
 
 # Removing residual configs
 if $CONF_RESIDUAL_CONFIGS ; then
- echo "\033[32mPurging residual configs:\033[0m"
+ echo $COLOR_GREEN"Purging residual configs:"$ENDCOLOR
  PKGS=$(dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
  if [ "$PKGS" != "" ]; then
   sudo dpkg --purge $PKGS
@@ -79,7 +81,7 @@ fi
 
 # Delete unnecessary (orphaned) deb packages
 if $CONF_DEBORPHAN ; then
- echo "\033[32mRunning deborphan:\033[0m"
+ echo $COLOR_GREEN"Running deborphan:"$ENDCOLOR
  if which deborphan >/dev/null; then
   sudo deborphan | xargs sudo apt-get remove --purge
   echo "HINT: This packages also can be removed (--guess-all):"
@@ -91,7 +93,7 @@ fi
  
 # Cleaning Thumbnails
 if $CONF_THUMBNAILS ; then
- echo "\033[32mRemoving thumbnails:\033[0m"
+ echo $COLOR_GREEN"Removing thumbnails:"$ENDCOLOR
  THUMBNAILS=$(find $HOME/.thumbnails -type f)
  if [ "$THUMBNAILS" != "" ]; then
   find $HOME/.thumbnails -type f | xargs rm -fv
@@ -102,7 +104,7 @@ fi
 
 # Cleaning /var/logs
 if $CONF_LOGS ; then
- echo "\033[32mRemoving logs (var/logs):\033[0m"
+ echo $COLOR_GREEN"Removing logs (var/logs):"$ENDCOLOR
  LOGS=$(find /var/log -type f -name "*.log.*.gz")
  if [ "$LOGS" != "" ]; then
   find /var/log -type f -name "*.log.*.gz" | xargs sudo rm -fv
@@ -113,7 +115,7 @@ fi
 
 # Purging trash
 if $CONF_TRASH ; then
- echo "\033[32mPurging trash:\033[0m"
+ echo $COLOR_GREEN"Purging trash:"$ENDCOLOR
  rm -rfv $HOME/.local/share/Trash/*/**
 fi
 

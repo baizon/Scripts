@@ -1,6 +1,8 @@
 19.07.2013
 ==========
 * trim - Added loop to cover multiple devices.
+* cleaner.sh - Added var for colors.
+* dropbox-updater.sh - Added var for colors.
 
 18.07.2013
 ==========

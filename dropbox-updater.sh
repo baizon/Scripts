@@ -3,7 +3,8 @@
 URL="https://dl-web.dropbox.com/u/17/"
 LOCAL_VERSION=$(cat $HOME/.dropbox-dist/VERSION)
 OS_TYPE=$(uname -m)
-
+COLOR_GREEN="\033[32m"
+ENDCOLOR="\033[0m"
 
 VersionColor() {
  if [ "$2" = "$REMOTE_VERSION" ]; then
@@ -34,22 +35,22 @@ else
    OS_TYPE="x86"
   fi
   DROPBOX_FILE="dropbox-lnx.$OS_TYPE-$REMOTE_VERSION.tar.gz"
-  echo "\033[32mStopping Dropbox process...\033[0m"
+  echo $COLOR_GREEN"Stopping Dropbox process..."$ENDCOLOR
   sh -c "dropbox stop"
-  echo "\033[32mDownloading Dropbox file from $URL ...\033[0m"
+  echo $COLOR_GREEN"Downloading Dropbox file from $URL ..."$ENDCOLOR
   wget $URL$DROPBOX_FILE -P $HOME
   if [ -f $HOME/$DROPBOX_FILE ]; then
-   echo "\033[32mRemoving Dropbox Folder...\033[0m"
+   echo $COLOR_GREEN"Removing Dropbox Folder..."$ENDCOLOR
    rm -r $HOME/.dropbox-dist
-   echo "\033[32mUnpacking Dropbox File...\033[0m"
+   echo $COLOR_GREEN"Unpacking Dropbox File..."$ENDCOLOR
    tar -xvf $HOME/$DROPBOX_FILE -C $HOME
-   echo "\033[32mStarting Dropbox process...\033[0m"
+   echo $COLOR_GREEN"Starting Dropbox process..."$ENDCOLOR
    sh -c "dropbox start"
-   echo "\033[32mRemoving Dropbox file...\033[0m"
+   echo $COLOR_GREEN"Removing Dropbox archive..."$ENDCOLOR
    rm -v $HOME/$DROPBOX_FILE
   else 
    echo "Download failed. Aborting!"
-   echo "\033[32mStarting Dropbox process...\033[0m"
+   echo $COLOR_GREEN"Starting Dropbox process..."$ENDCOLOR
    sh -c "dropbox start"
   fi
  fi

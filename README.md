@@ -24,7 +24,7 @@ Checks if Dropbox is up to date. It compares the version with the latest stable 
 
 oneconf-disabler.sh
 ===================
-A simple script which disables the <a href="https://wiki.ubuntu.com/OneConf">OneConf</a> synchronisation of the Software Center.
+A simple script which disables the <a href="https://wiki.ubuntu.com/OneConf">OneConf</a> synchronisation.
 
 toggletouchpad.sh
 =================
