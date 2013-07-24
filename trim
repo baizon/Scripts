@@ -5,10 +5,9 @@ LOG=/var/log/trim.log
 DEVS="/ /home"
 USER="baizon"
 
-sudo -u $USER sh -c 'notify-send "Trim" "Trim started."'
 sudo sh -c "echo '*** $(date -R) ***' >> $LOG"
 for i in $DEVS
 do
+ sudo -u $USER sh -c "notify-send 'Trim' 'Trimming: $i'"
  sudo sh -c "fstrim -v $i >> $LOG"
 done
-sudo -u $USER sh -c 'notify-send "Trim" "Trim ended."'
