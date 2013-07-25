@@ -28,7 +28,7 @@ if [ "$LOCAL_VERSION" = "$REMOTE_VERSION" ]; then
 else
  read -p "Update to the latest version? (Y/n) " INPUT
  echo ""
- if [ "$INPUT" = "y" ] || [ "$INPUT" = "Y" ]; then
+ if [ "$INPUT" = "y" ] || [ "$INPUT" = "Y" ] || [ "$input" = "" ]; then
   if [ "$OS_TYPE" = "x86_64" ]; then
    OS_TYPE="x86_64"
   else
@@ -41,13 +41,13 @@ else
   wget $URL$DROPBOX_FILE -P $HOME
   if [ -f $HOME/$DROPBOX_FILE ]; then
    echo $COLOR_GREEN"Removing Dropbox Folder..."$ENDCOLOR
-   rm -r $HOME/.dropbox-dist
+   rm -rv $HOME/.dropbox-dist
    echo $COLOR_GREEN"Unpacking Dropbox File..."$ENDCOLOR
    tar -xvf $HOME/$DROPBOX_FILE -C $HOME
+   echo $COLOR_GREEN"Removing Dropbox archive..."$ENDCOLOR
+   rm -v $HOME/$DROPBOX_FILE   
    echo $COLOR_GREEN"Starting Dropbox process..."$ENDCOLOR
    sh -c "dropbox start"
-   echo $COLOR_GREEN"Removing Dropbox archive..."$ENDCOLOR
-   rm -v $HOME/$DROPBOX_FILE
   else 
    echo "Download failed. Aborting!"
    echo $COLOR_GREEN"Starting Dropbox process..."$ENDCOLOR
