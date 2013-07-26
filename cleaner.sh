@@ -14,10 +14,6 @@ CONF_TRASH=true
 COLOR_GREEN="\033[32m"
 ENDCOLOR="\033[0m"
 
-pause() {
- echo "Done."
- read -p "Press any key to continue..." input
-}
 
 boolTextColor() {
  if $2 ; then
@@ -119,5 +115,4 @@ if $CONF_TRASH ; then
  rm -rfv $HOME/.local/share/Trash/*/**
 fi
 
-pause
-
+read -p "All done. Press any key to continue..." input

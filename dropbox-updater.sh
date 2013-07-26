@@ -56,8 +56,7 @@ else
  fi
 fi
 
-echo "Done."
-read -p "Press any key to continue..." input
+read -p "All done. Press any key to continue..." input
 
 # Downloads the files from internet.
 # dropbox stop
