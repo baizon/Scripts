@@ -8,7 +8,7 @@ ENDCOLOR="\033[0m"
 
 VersionColor() {
  if [ "$2" = "$REMOTE_VERSION" ]; then
-  echo $1"\033[32m $2 \033[0m"
+  echo $1$COLOR_GREEN" $2 "$ENDCOLOR
  else 
   echo $1"\033[31m $2 \033[0m"
  fi
@@ -18,7 +18,7 @@ VersionColor() {
 echo "----- Dropbox Update Script -----"
 echo "\033[32mChecking Dropbox versions...\033[0m"
 
-REMOTE_VERSION=$(wget https://forums.dropbox.com -q -O - | grep -o -P 'Stable Build - .{0,10}' | cut -c 16-40 | grep -o -P '^[^<]+')
+REMOTE_VERSION=$(wget https://forums.dropbox.com -q -O - | grep -o -P -m 1 'Stable Build - .{0,10}' | cut -c 16-40 | grep -o -P '^[^<]+')
 
 VersionColor "Remote version: " $REMOTE_VERSION
 VersionColor "Local version:  " $LOCAL_VERSION
@@ -27,8 +27,7 @@ if [ "$LOCAL_VERSION" = "$REMOTE_VERSION" ]; then
  echo "Dropbox up to date." 
 else
  read -p "Update to the latest version? (Y/n) " INPUT
- echo ""
- if [ "$INPUT" = "y" ] || [ "$INPUT" = "Y" ] || [ "$input" = "" ]; then
+ if [ "$INPUT" = "y" ] || [ "$INPUT" = "Y" ] || [ "$INPUT" = "" ]; then
   if [ "$OS_TYPE" = "x86_64" ]; then
    OS_TYPE="x86_64"
   else
@@ -53,6 +52,8 @@ else
    echo $COLOR_GREEN"Starting Dropbox process..."$ENDCOLOR
    sh -c "dropbox start"
   fi
+ else 
+  echo "Aborting!"
  fi
 fi
 
