@@ -37,7 +37,7 @@ else
   echo $COLOR_GREEN"Stopping Dropbox process..."$ENDCOLOR
   sh -c "dropbox stop"
   echo $COLOR_GREEN"Downloading Dropbox file from $URL ..."$ENDCOLOR
-  wget $URL$DROPBOX_FILE -P $HOME
+  wget -nv $URL$DROPBOX_FILE -P $HOME
   if [ -f $HOME/$DROPBOX_FILE ]; then
    echo $COLOR_GREEN"Removing Dropbox Folder..."$ENDCOLOR
    rm -rv $HOME/.dropbox-dist

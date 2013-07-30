@@ -11,3 +11,4 @@ do
  sudo -u $USER sh -c "notify-send 'Trim' 'Trimming: $i'"
  sudo sh -c "fstrim -v $i >> $LOG"
 done
+sudo -u $USER sh -c "notify-send 'Trim' 'Trim Done. Log saved in: $LOG'"
