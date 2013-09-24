@@ -37,3 +37,11 @@ There are two configuration parameter:
 - <code>LOG</code> - The path where the log should be saved. Default is <code>/var/log/trim.log</code>
 - <code>DEVS</code> - a list of devices, which will be affected by the trim command. Drive-list is separeted by spaces. For example <code>"/ /home"</code> will check the mounted root drive "/" and the "/home" drive. For every driver a notification will be displayed.
 - <code>USER</code> - Set user which will be notified about trim.
+
+hdd-usage.sh
+============
+Shows the HDD usage. Using <CODE>df -H</CODE> command.
+
+mem-usage.sh
+============
+Shows the Memory usage. Using <CODE>free</CODE> command.
