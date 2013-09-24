@@ -3,12 +3,9 @@
 # Don't forget to update '/etc/anacrontab' after changing path!
 LOG=/var/log/trim.log
 DEVS="/ /home"
-USER="baizon"
 
 sudo sh -c "echo '*** $(date -R) ***' >> $LOG"
 for i in $DEVS
 do
- sudo -u $USER sh -c "notify-send 'Trim' 'Trimming: $i'"
  sudo sh -c "fstrim -v $i >> $LOG"
 done
-sudo -u $USER sh -c "notify-send 'Trim' 'Trim Done. Log saved in: $LOG'"
