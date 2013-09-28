@@ -70,6 +70,7 @@ if $CONF_RESIDUAL_CONFIGS ; then
  PKGS=$(dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
  if [ "$PKGS" != "" ]; then
   sudo dpkg --purge $PKGS
+  echo "Done."
  else
   echo "Nothing to do here."
  fi
@@ -113,6 +114,7 @@ fi
 if $CONF_TRASH ; then
  echo $COLOR_GREEN"Purging trash:"$ENDCOLOR
  rm -rfv $HOME/.local/share/Trash/*/**
+ echo "Done."
 fi
 
 read -p "All done. Press any key to continue..." input
