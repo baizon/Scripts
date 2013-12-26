@@ -45,3 +45,7 @@ Shows the HDD usage. Using <CODE>df -H</CODE> command.
 mem-usage.sh
 ============
 Shows the Memory usage. Using <CODE>free</CODE> command.
+
+lockscreen.sh
+=============
+Runs <CODE>xflock4</CODE> then turns off the screen with <CODE>xset dpms force off</CODE>.
