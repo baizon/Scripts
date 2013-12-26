@@ -80,7 +80,7 @@ fi
 if $CONF_DEBORPHAN ; then
  echo $COLOR_GREEN"Running deborphan:"$ENDCOLOR
  if which deborphan >/dev/null; then
-  sudo deborphan | xargs sudo apt-get remove --purge
+  sudo deborphan | xargs sudo apt-get -y purge
   echo "HINT: This packages also can be removed (--guess-all):"
   sudo deborphan --guess-all
  else
