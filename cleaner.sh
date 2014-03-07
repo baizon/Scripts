@@ -6,10 +6,11 @@ CONF_UNUSED_APT=true
 CONF_OLD_KERNELS=true
 CONF_LOCALEPURGE=true
 CONF_RESIDUAL_CONFIGS=true
-CONF_DEBORPHAN=false
+CONF_DEBORPHAN=true
 CONF_THUMBNAILS=false
 CONF_LOGS=false
 CONF_TRASH=true
+DEBORPHAN_EXCLUDE="libg3dvl-mesa:amd64"
 # --------------------------------------------------------------
 COLOR_GREEN="\033[32m"
 ENDCOLOR="\033[0m"
@@ -80,7 +81,7 @@ fi
 if $CONF_DEBORPHAN ; then
  echo $COLOR_GREEN"Running deborphan:"$ENDCOLOR
  if which deborphan >/dev/null; then
-  sudo deborphan | xargs sudo apt-get -y purge
+  sudo deborphan -e $DEBORPHAN_EXCLUDE | xargs sudo apt-get -y purge
   echo "HINT: This packages also can be removed (--guess-all):"
   sudo deborphan --guess-all
  else
