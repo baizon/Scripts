@@ -41,7 +41,3 @@ There are two configuration parameter:
 hdd-usage.sh
 ============
 Shows the HDD usage. Using <CODE>df -H</CODE> command.
-
-mem-usage.sh
-============
-Shows the Memory usage. Using <CODE>free</CODE> command.
