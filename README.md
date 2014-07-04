@@ -20,7 +20,7 @@ It contains the following cleaning components:
 
 dropbox-updater.sh
 ==================
-Checks if Dropbox is up to date. It compares the version with the latest stable forum build (https://forums.dropbox.com). The new file is gonna be downloaded from: https://dl-web.dropbox.com/u/17/
+Checks if Dropbox is up to date. It compares the version with the latest Stable/Release Candidate/Experimental forum build (https://forums.dropbox.com). The new file is gonna be downloaded from: https://dl-web.dropbox.com/u/17/
 
 oneconf-disabler.sh
 ===================
