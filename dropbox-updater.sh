@@ -1,6 +1,9 @@
 #!/bin/sh
 
 URL="https://dl-web.dropbox.com/u/17/"
+BUILD="Stable Build"
+# BUILD="Release Candidate Build"
+# BUILD="Experimental Build"
 OS_TYPE=$(uname -m)
 COLOR_GREEN="\033[32m"
 ENDCOLOR="\033[0m"
@@ -18,7 +21,7 @@ echo "----- Dropbox Update Script -----"
 echo "\033[32mChecking Dropbox versions...\033[0m"
 
 LOCAL_VERSION=$(cat $HOME/.dropbox-dist/VERSION)
-REMOTE_VERSION=$(wget https://forums.dropbox.com -q -O - | grep -o -i -P -m 1 'Stable Build - .{0,10}' | cut -c 16-40 | grep -o -P '^[^<]+')
+REMOTE_VERSION=$(wget https://forums.dropbox.com -q -O - | grep -o -i -P -m 1 "$BUILD - .{0,10}" | cut -f2 -d"-" | cut -c 2- | grep -o -P '^[^<]+')
 
 if [ "$LOCAL_VERSION" = "" ]; then
  echo "Missing Dropbox on local machine. Aborting!"

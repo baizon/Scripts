@@ -9,7 +9,7 @@ CONF_RESIDUAL_CONFIGS=true
 CONF_DEBORPHAN=true
 CONF_THUMBNAILS=false
 CONF_LOGS=false
-CONF_TRASH=true
+CONF_TRASH=false
 DEBORPHAN_EXCLUDE="libg3dvl-mesa:amd64"
 # --------------------------------------------------------------
 COLOR_GREEN="\033[32m"
