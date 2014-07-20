@@ -41,3 +41,7 @@ There are two configuration parameter:
 hdd-usage.sh
 ============
 Shows the HDD usage. Using <CODE>df -H</CODE> command.
+
+apt-upd-upg.sh
+==============
+It's a simple script which runs <CODE>apt-get update</CODE> and <CODE>apt-get dist-upgrade</CODE> in the background. Also using options <CODE>-qy</CODE> for no output and auto-agree.
