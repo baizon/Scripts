@@ -7,7 +7,7 @@ CONF_OLD_KERNELS=true
 CONF_LOCALEPURGE=true
 CONF_RESIDUAL_CONFIGS=true
 CONF_DEBORPHAN=true
-CONF_THUMBNAILS=false
+CONF_THUMBNAILS=true
 CONF_LOGS=false
 CONF_TRASH=false
 DEBORPHAN_EXCLUDE="libg3dvl-mesa:amd64"
@@ -94,7 +94,7 @@ if $CONF_THUMBNAILS ; then
  echo $COLOR_GREEN"Removing thumbnails:"$ENDCOLOR
  THUMBNAILS=$(find $HOME/.thumbnails -type f)
  if [ "$THUMBNAILS" != "" ]; then
-  find $HOME/.thumbnails -type f | xargs rm -fv
+  find $HOME/.thumbnails -type f -delete -print
  else 
   echo "Nothing to do here."
  fi
@@ -105,7 +105,7 @@ if $CONF_LOGS ; then
  echo $COLOR_GREEN"Removing logs (var/logs):"$ENDCOLOR
  LOGS=$(find /var/log -type f -name "*.log.*.gz")
  if [ "$LOGS" != "" ]; then
-  find /var/log -type f -name "*.log.*.gz" | xargs sudo rm -fv
+  find /var/log -type f -name -delete -print "*.log.*.gz"
  else 
   echo "Nothing to do here."
  fi
