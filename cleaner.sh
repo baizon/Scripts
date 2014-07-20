@@ -105,7 +105,7 @@ if $CONF_LOGS ; then
  echo $COLOR_GREEN"Removing logs (var/logs):"$ENDCOLOR
  LOGS=$(find /var/log -type f -name "*.log.*.gz")
  if [ "$LOGS" != "" ]; then
-  find /var/log -type f -name -delete -print "*.log.*.gz"
+  find /var/log -type f -delete -print -name "*.log.*.gz"
  else 
   echo "Nothing to do here."
  fi
