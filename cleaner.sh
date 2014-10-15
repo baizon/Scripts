@@ -11,6 +11,8 @@ CONF_THUMBNAILS=true
 CONF_LOGS=false
 CONF_TRASH=false
 DEBORPHAN_EXCLUDE="libg3dvl-mesa:amd64"
+# DEBORPHAN_EXCLUDE="activity-log-manager-control-center,qtdeclarative5-dialogs-plugin,libreoffice-presentation-minimizer,qtdeclarative5-privatewidgets-plugin"
+
 # --------------------------------------------------------------
 COLOR_GREEN="\033[32m"
 ENDCOLOR="\033[0m"
@@ -81,7 +83,11 @@ fi
 if $CONF_DEBORPHAN ; then
  echo $COLOR_GREEN"Running deborphan:"$ENDCOLOR
  if which deborphan >/dev/null; then
-  sudo deborphan -e $DEBORPHAN_EXCLUDE | xargs sudo apt-get -y purge
+  if [ -n "${DEBORPHAN_EXCLUDE}" ]; then
+   sudo deborphan -e $DEBORPHAN_EXCLUDE | xargs sudo apt-get -y purge
+  else
+   sudo deborphan | xargs sudo apt-get -y purge
+  fi
   echo "HINT: This packages also can be removed (--guess-all):"
   sudo deborphan --guess-all
  else
