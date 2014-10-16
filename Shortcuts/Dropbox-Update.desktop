@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dropbox-Updater
+Comment=
+Exec=sh -c "~/GitHub/Scripts/dropbox-updater.sh"
+Icon=dropbox
+Path=
+Terminal=true
+StartupNotify=false
+Name[en_US]=Dropbox-Updater

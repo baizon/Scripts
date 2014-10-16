@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=bBackup
+Comment=
+Exec=sh -c "~/GitHub/Scripts/backup.sh"
+Icon=document-save
+Path=
+Terminal=true
+StartupNotify=false
