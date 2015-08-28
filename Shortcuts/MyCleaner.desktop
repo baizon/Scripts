@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=MyCleaner
+Comment=
+Exec=sh -c "~/GitHub/Scripts/cleaner-deb.sh"
+Icon=aptdaemon-cleanup
+Terminal=true
+StartupNotify=false
+Name[en_US]=MyCleaner

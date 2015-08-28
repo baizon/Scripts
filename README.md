@@ -4,9 +4,23 @@ This repository contains a collection of my personal scripts. I use them under U
 
 TODO: Complete documentation.
 
-cleaner.sh
+backup.sh
 ==========
-Cleaning script:
+Own backup script of HOME, grub and anacrontab. It creates a .tar.7z archive (also can be encrypted).
+
+cleaner-arch.sh
+===============
+Cleaning script for arch-based systems:
+It contains the following cleaning components:
+- "Pruning old package cache (paccache)"
+- "Orphan Package Removal"
+- "Cleaning thumbnails"
+- "Cleaning var/logs"
+- "Purging trash"
+
+cleaner-deb.sh
+==============
+Cleaning script for debian-based systems:
 It contains the following cleaning components:
 - "Purging apt cache (autoclean & clean)"
 - "Removing unused apt packages (autoremove)"
@@ -17,6 +31,10 @@ It contains the following cleaning components:
 - "Cleaning thumbnails"
 - "Cleaning var/logs"
 - "Purging trash"
+
+hdd-usage.sh
+============
+Shows the HDD usage. Using <CODE>df -H</CODE> command.
 
 oneconf-disabler.sh
 ===================
@@ -33,10 +51,6 @@ There are two configuration parameter:
 - <code>LOG</code> - The path where the log should be saved. Default is <code>/var/log/trim.log</code>
 - <code>DEVS</code> - a list of devices, which will be affected by the trim command. Drive-list is separeted by spaces. For example <code>"/ /home"</code> will check the mounted root drive "/" and the "/home" drive. For every driver a notification will be displayed.
 
-hdd-usage.sh
-============
-Shows the HDD usage. Using <CODE>df -H</CODE> command.
-
-apt-upd-upg.sh
+update-grub.sh
 ==============
-It's a simple script which runs <CODE>apt-get update</CODE> and <CODE>apt-get dist-upgrade</CODE> in the background. Also using options <CODE>-qy</CODE> for no output and auto-agree.
+A simple script for my arch system, which runs <CODE>grub-mkconfig -o /boot/grub/grub.cfg "$@"</CODE>.
