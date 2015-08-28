@@ -7,10 +7,10 @@ CONF_OLD_KERNELS=true
 CONF_LOCALEPURGE=true
 CONF_RESIDUAL_CONFIGS=true
 CONF_DEBORPHAN=true
-CONF_THUMBNAILS=true
+CONF_THUMBNAILS=false
 CONF_LOGS=false
 CONF_TRASH=false
-DEBORPHAN_EXCLUDE="libg3dvl-mesa:amd64"
+DEBORPHAN_EXCLUDE=""
 # DEBORPHAN_EXCLUDE="activity-log-manager-control-center,qtdeclarative5-dialogs-plugin,libreoffice-presentation-minimizer,qtdeclarative5-privatewidgets-plugin"
 
 # --------------------------------------------------------------
