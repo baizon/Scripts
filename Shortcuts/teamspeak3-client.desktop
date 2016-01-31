@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Teamspeak 3 Client
+GenericName=Teamspeak
+Comment=Speak with friends
+Comment[de]=Spreche mit Freunden
+Exec=/opt/TeamSpeak3-Client-linux_amd64/ts3client_runscript.sh
+Icon=/opt/TeamSpeak3-Client-linux_amd64/pluginsdk/docs/client_html/images/logo.png
+Terminal=false
+X-MultipleArgs=false
+Categories=Network
+StartupWMClass=Teamspeak
+StartupNotify=true
