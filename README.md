@@ -40,6 +40,10 @@ oneconf-disabler.sh
 ===================
 A simple script which disables the <a href="https://wiki.ubuntu.com/OneConf">OneConf</a> synchronisation.
 
+upgrade-ums.sh
+===================
+A script that upgrades <a href="http://www.universalmediaserver.com/">Universal Media Server</a>.
+
 toggletouchpad.sh
 =================
 Uses the <code>xinput</code> command to toggle the touchpad. Additionally a <code>notify-send</code> is sent with a notification of the current touchpad state.
