@@ -10,26 +10,17 @@ SOURCE="/etc/default/grub /etc/anacrontab /etc/NetworkManager/system-connections
 EXCLUDE="--exclude=$HOME/$HOSTNAME-$DATE.tar.7z --exclude=$HOME/.cache --exclude=$HOME/.java --exclude=$HOME/.mozilla --exclude=$HOME/.steam --exclude=$HOME/.local/share/Trash --exclude=$HOME/.local/share/Steam --exclude=$HOME/.local/share/data --exclude=$HOME/.local/share/zeitgeist --exclude=$HOME/EncFS --exclude=$HOME/Downloads --exclude=$HOME/MEGA --exclude=$HOME/Wsiurki"
 # --------------------------------------------------------------
 
-
-backup() {
-if $1; then
- sudo sh -c "tar -cpf - $SOURCE $EXCLUDE | 7za a -p -mhe -mmt -mx7 -si $HOME/$BACKUP_FILE"
-else
- sudo sh -c "tar -cpf - $SOURCE $EXCLUDE | 7za a -mhe -mmt -mx7 -si $HOME/$BACKUP_FILE"
-fi
-cp $HOME/$BACKUP_FILE $BACKUP_DIR/$BACKUP_FILE
-echo "\033[32mRemoving temporary files:\033[0m"
-sudo sh -c "rm -vf $HOME/$HOSTNAME-$DATE.tar.7z"
-}
-
 backupAsk() {
-read -p "Encrypt archive? (y/N) " input
-echo ""
-if [ "$input" = "y" ] || [ "$input" = "Y" ]; then
- backup true
-elif [ "$input" = "n" ] || [ "$input" = "N" ] || [ "$input" = "" ]; then
- backup false
-fi
+ read -p "Encrypt archive? (y/N) " input
+ echo ""
+ if [ "$input" = "y" ] || [ "$input" = "Y" ]; then
+  sudo sh -c "tar -cpf - $SOURCE $EXCLUDE | 7za a -p -mhe -mmt -mx7 -si $HOME/$BACKUP_FILE"
+ elif [ "$input" = "n" ] || [ "$input" = "N" ] || [ "$input" = "" ]; then
+  sudo sh -c "tar -cpf - $SOURCE $EXCLUDE | 7za a -mhe -mmt -mx7 -si $HOME/$BACKUP_FILE"
+ fi
+ cp $HOME/$BACKUP_FILE $BACKUP_DIR/$BACKUP_FILE
+ echo "\033[32mRemoving temporary files:\033[0m"
+ sudo sh -c "rm -vf $HOME/$HOSTNAME-$DATE.tar.7z"
 }
 
 
