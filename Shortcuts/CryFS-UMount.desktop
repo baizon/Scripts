@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=CryFS-UMount
+Comment=
+Exec=sh -c "~/GitHub/Scripts/cryfs-umount.sh"
+Icon=seahorse
+Terminal=true
+StartupNotify=false
+Name[en_US]=CryFS-UMount
