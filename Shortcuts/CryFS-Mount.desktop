@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=CryFS-Mount
-Comment=
-Exec=sh -c "~/GitHub/Scripts/cryfs-mount.sh"
-Icon=seahorse
-Terminal=true
-StartupNotify=false
-Name[en_US]=CryFS-Mount
