@@ -43,3 +43,4 @@ addExportsEntry $TVSHOWS_NFS_PATH
 
 echo "Starting NFS service..."
 sudo systemctl start nfs-server
+read -p "All done. Press any key to continue..." input
