@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NFS-Start
+Comment=Mounts the NFS and starts the NFS service.
+Exec=sh -c "~/GitHub/Scripts/nfs-start.sh"
+Icon=utilities-terminal
+Path=
+Terminal=true
+StartupNotify=false

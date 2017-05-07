@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NFS-Stop
+Comment=Stops the NFS and removes the mounts.
+Exec=sh -c "~/GitHub/Scripts/nfs-stop.sh"
+Icon=utilities-terminal
+Path=
+Terminal=true
+StartupNotify=false
