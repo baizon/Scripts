@@ -25,7 +25,7 @@ addExportsEntry() {
     echo "Entry found, nothing to do."
   else
     echo "Adding entry to /etc/exports"
-    echo $1 $MOUNT_OPTIONS >> $EXPORTS_FILE_PATH
+    sudo sh -c "echo $1 '$MOUNT_OPTIONS' >> $EXPORTS_FILE_PATH"
     echo "Running exportfs to update..."
     sudo exportfs -arv
   fi
