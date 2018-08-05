@@ -36,10 +36,6 @@ hdd-usage.sh
 ============
 Shows the HDD usage. Using <CODE>df -H</CODE> command.
 
-oneconf-disabler.sh
-===================
-A simple script which disables the <a href="https://wiki.ubuntu.com/OneConf">OneConf</a> synchronisation.
-
 upgrade-ums.sh
 ===================
 A script that upgrades <a href="http://www.universalmediaserver.com/">Universal Media Server</a>.
