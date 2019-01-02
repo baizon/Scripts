@@ -6,7 +6,7 @@ DATE=$(date +%Y-%m-%d-%H%M%S)
 HOSTNAME=$(uname -n)
 BACKUP_DIR="$HOME/Documents/Backup"
 BACKUP_FILE="$HOSTNAME-$DATE.tar.7z"
-SOURCE="/etc/fstab /etc/default/grub $HOME"
+SOURCE="/etc/fstab /etc/default/grub /etc/locale.conf $HOME"
 EXCLUDE="--exclude=$BACKUP_DIR/$BACKUP_FILE --exclude=$HOME/.cache --exclude=$HOME/.java --exclude=$HOME/.steam --exclude=$HOME/.local/share/Trash --exclude=$HOME/.local/share/Steam --exclude=$HOME/Downloads/Torrents --exclude=$HOME/Downloads/Temp --exclude=$HOME/MEGA/Private"
 # --------------------------------------------------------------
 
