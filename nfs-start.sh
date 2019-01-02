@@ -1,11 +1,13 @@
 #!/bin/sh
 
+# --- CONFIG ---------------------------------------------------
 MOUNT_OPTIONS="192.168.0.1/24(ro,no_subtree_check,insecure,sync)"
 MOVIES_DISK_PATH="/run/media/baizon/Data/Movies"
 TVSHOWS_DISK_PATH="/run/media/baizon/Data/TVShows"
 MOVIES_NFS_PATH="/srv/nfs/Movies"
 TVSHOWS_NFS_PATH="/srv/nfs/TVShows"
 EXPORTS_FILE_PATH="/etc/exports"
+# --------------------------------------------------------------
 
 addNfsDir() {
   if [ ! -d "$1" ]; then

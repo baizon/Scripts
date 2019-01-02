@@ -1,12 +1,12 @@
 Scripts
 =======
-This repository contains a collection of my personal scripts. I use them under Ubuntu, it can be mapped on other debian-distributions.
+This repository contains a collection of my personal scripts. I use them under <a href="https://www.manjaro.org">Manjaro</a>.
 
 TODO: Complete documentation.
 
 backup.sh
 ==========
-Own backup script of HOME, grub and anacrontab. It creates a .tar.7z archive (also can be encrypted).
+Own backup script of HOME (and some other config files). It creates a .tar.7z archive (can also be encrypted).
 
 cleaner-arch.sh
 ===============
@@ -36,9 +36,21 @@ hdd-usage.sh
 ============
 Shows the HDD usage. Using <CODE>df -H</CODE> command.
 
-upgrade-ums.sh
-===================
-A script that upgrades <a href="http://www.universalmediaserver.com/">Universal Media Server</a>.
+nfs-start.sh
+============
+Mounts and starts (with <CODE>systemctl</CODE>) a NFS. Configuration parameters:
+- <CODE>MOUNT_OPTIONS</CODE> - Mounts options of for the exports file
+- <CODE>MOVIES_DISK_PATH</CODE> - Folder path
+- <CODE>TVSHOWS_DISK_PATH</CODE> - Folder path
+- <CODE>MOVIES_NFS_PATH</CODE> - NFS path
+- <CODE>TVSHOWS_NFS_PATH</CODE> - NFS path
+- <CODE>EXPORTS_FILE_PATH</CODE> - Path of the exports config (<CODE>/etc/exports</CODE>)
+
+nfs-stop.sh
+============
+Stops, unmounts and removes the NFS. Configuration parameters:
+- <CODE>MOVIES_STRING</CODE> - NFS path
+- <CODE>TVSHOWS_STRING</CODE> - NFS path 
 
 toggletouchpad.sh
 =================
@@ -54,3 +66,7 @@ There are two configuration parameter:
 update-grub.sh
 ==============
 A simple script for my arch system, which runs <CODE>grub-mkconfig -o /boot/grub/grub.cfg "$@"</CODE>.
+
+upgrade-ums.sh
+===================
+A script that upgrades <a href="https://www.universalmediaserver.com">Universal Media Server</a>.
