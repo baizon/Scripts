@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=NFS-Mount
-Comment=Mounts the NFS.
+Comment=Mounts the NFS
 Exec=sh -c "~/GitHub/Scripts/nfs-mount.sh"
 Icon=utilities-terminal
 Path=
