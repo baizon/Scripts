@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NFS-UMount
+Comment=Un mounts the NFS
+Exec=sh -c "~/GitHub/Scripts/nfs-umount.sh"
+Icon=utilities-terminal
+Path=
+Terminal=true
+StartupNotify=false
