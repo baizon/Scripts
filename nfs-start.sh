@@ -1,14 +1,14 @@
 #!/bin/sh
 
-# --- CONFIG ---------------------------------------------------
-READ_MOUNT_OPTIONS="192.168.0.221/24(ro,no_subtree_check,sync)"
+# --- CONFIG -----------------------------------------------------------
+READ_MOUNT_OPTIONS="192.168.0.221/24(ro,no_subtree_check,insecure,sync)"
 WRITE_MOUNT_OPTIONS="192.168.0.221/24(rw,no_subtree_check,sync)"
 MOVIES_PATH="/mnt/data/Movies"
 PICTURES_PATH="/mnt/data/Pictures"
 TVSHOWS_PATH="/mnt/data/TVShows"
 UPLOAD_PATH="/mnt/data/Upload"
 EXPORTS_FILE_PATH="/etc/exports"
-# --------------------------------------------------------------
+# ----------------------------------------------------------------------
 
 addNfsDir() {
   if [ ! -d "$1" ]; then
