@@ -20,8 +20,6 @@ echo "---------- CLEANING SCRIPT -------------------------------"
 boolText "Pruning old package cache (paccache):" $CONF_PACCACHE
 boolText "Orphan Package Removal:" $CONF_PACMAN_ORPHAN
 boolText "Cleaning thumbnails:" $CONF_THUMBNAILS
-boolText "Cleaning var/logs:" $CONF_LOGS
-boolText "Purging trash:" $CONF_TRASH
 echo "----------------------------------------------------------"
 # Pruning paccache
 if $CONF_PACCACHE ; then
@@ -44,24 +42,6 @@ if $CONF_THUMBNAILS ; then
  else 
   echo "Nothing to do here."
  fi
-fi
-
-# Cleaning /var/logs
-if $CONF_LOGS ; then
- echo "Removing logs (var/logs):"
- LOGS=$(find /var/log -type f -name "*.log.*.gz")
- if [ "$LOGS" != "" ]; then
-  find /var/log -type f -delete -print -name "*.log.*.gz"
- else 
-  echo "Nothing to do here."
- fi
-fi
-
-# Purging trash
-if $CONF_TRASH ; then
- echo "Purging trash:"
- rm -rfv $HOME/.local/share/Trash/*/**
- echo "Done."
 fi
 
 read -p "All done. Press any key to continue..." input
