@@ -7,7 +7,16 @@ HOSTNAME=$(uname -n)
 BACKUP_DIR="$HOME/Documents/Backup"
 BACKUP_FILE="$HOSTNAME-$DATE.tar.7z"
 SOURCE="/etc/fstab /etc/default/grub /etc/locale.conf $HOME"
-EXCLUDE="--exclude=$BACKUP_DIR/$BACKUP_FILE --exclude=$HOME/.cache --exclude=$HOME/.java --exclude=$HOME/.steam --exclude=$HOME/.local/share/Trash --exclude=$HOME/.local/share/Steam --exclude=$HOME/Downloads/Torrents --exclude=$HOME/Downloads/Temp --exclude=$HOME/MEGA/Private"
+EXCLUDE_ARRAY=("--exclude=$BACKUP_DIR/$BACKUP_FILE")
+EXCLUDE_ARRAY+=("--exclude=$HOME/.cache")
+EXCLUDE_ARRAY+=("--exclude=$HOME/.java")
+EXCLUDE_ARRAY+=("--exclude=$HOME/.steam")
+EXCLUDE_ARRAY+=("--exclude=$HOME/.local/share/Trash")
+EXCLUDE_ARRAY+=("--exclude=$HOME/.local/share/Steam")
+EXCLUDE_ARRAY+=("--exclude=$HOME/Downloads/Torrents")
+EXCLUDE_ARRAY+=("--exclude=$HOME/Downloads/Temp")
+EXCLUDE_ARRAY+=("--exclude=$HOME/Downloads/DCC")
+EXCLUDE="${EXCLUDE_ARRAY[@]}"
 # --------------------------------------------------------------
 
 echo "---------- BACKUP SCRIPT -------------------------"
