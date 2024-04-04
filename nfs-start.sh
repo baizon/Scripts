@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # --- CONFIG -----------------------------------------------------------
-READ_MOUNT_OPTIONS="192.168.178.20/24(ro,no_subtree_check,insecure,sync)"
-WRITE_MOUNT_OPTIONS="192.168.178.20/24(rw,no_subtree_check,sync)"
+READ_MOUNT_OPTIONS="192.168.178.23/24(ro,no_subtree_check,insecure,sync)"
+WRITE_MOUNT_OPTIONS="192.168.178.23/24(rw,no_subtree_check,sync)"
 MOVIES_PATH="/mnt/data/Movies"
 PICTURES_PATH="/mnt/data/Pictures"
 TVSHOWS_PATH="/mnt/data/TVShows"
@@ -29,9 +29,6 @@ addExportsEntry() {
   fi
 }
 
-echo "Checking for nfs-utils package"
-pacman -Q nfs-utils
-
 echo "Adding Movies NFS (read)"
 addNfsDir $MOVIES_PATH
 addExportsEntry $MOVIES_PATH $READ_MOUNT_OPTIONS
@@ -48,8 +45,5 @@ echo "Adding Upload NFS (write)"
 addNfsDir $UPLOAD_PATH
 addExportsEntry $UPLOAD_PATH $WRITE_MOUNT_OPTIONS
 
-echo "Enabling  NFS service..."
-sudo systemctl enable nfs-server.service
-
 echo "Starting NFS service..."
-sudo systemctl start nfs-server.service
+sudo service nfs-kernel-server start
