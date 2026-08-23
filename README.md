@@ -4,10 +4,6 @@ This repository contains a collection of my personal scripts. I use them under <
 
 TODO: Complete documentation.
 
-backup.sh
-==========
-Own backup script of HOME (and some other config files). It creates a .tar.7z archive (can also be encrypted).
-
 cleaner-arch.sh
 ===============
 Cleaning script for arch-based systems:
@@ -31,10 +27,6 @@ It contains the following cleaning components:
 - "Cleaning thumbnails"
 - "Cleaning var/logs"
 - "Purging trash"
-
-hdd-usage.sh
-============
-Shows the HDD usage. Using <CODE>df -H</CODE> command.
 
 nfs-start.sh
 ============
