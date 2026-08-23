@@ -54,7 +54,12 @@ fi
 # Purging old kernels
 if $CONF_OLD_KERNELS ; then
  echo $COLOR_GREEN"Purging old kernels:"$ENDCOLOR
- dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
+ PKGS=$(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')
+ if [ -n "$PKGS" ]; then
+  echo "$PKGS" | xargs -r sudo apt-get -y -- purge
+ else
+  echo "Nothing to do here."
+ fi
 fi
 
 # Localepurge (localepurge needed)
@@ -71,8 +76,8 @@ fi
 if $CONF_RESIDUAL_CONFIGS ; then
  echo $COLOR_GREEN"Purging residual configs:"$ENDCOLOR
  PKGS=$(dpkg -l | grep '^rc' | tr -s ' ' | cut -d ' ' -f 2)
- if [ "$PKGS" != "" ]; then
-  sudo dpkg --purge $PKGS
+ if [ -n "$PKGS" ]; then
+  echo "$PKGS" | xargs -r sudo dpkg -- purge
   echo "Done."
  else
   echo "Nothing to do here."
@@ -84,9 +89,9 @@ if $CONF_DEBORPHAN ; then
  echo $COLOR_GREEN"Running deborphan:"$ENDCOLOR
  if which deborphan >/dev/null; then
   if [ -n "${DEBORPHAN_EXCLUDE}" ]; then
-   sudo deborphan -e $DEBORPHAN_EXCLUDE | xargs sudo apt-get -y purge
+   sudo deborphan -e "${DEBORPHAN_EXCLUDE}" | xargs -r sudo apt-get -y -- purge
   else
-   sudo deborphan | xargs sudo apt-get -y purge
+   sudo deborphan | xargs -r sudo apt-get -y -- purge
   fi
   echo "HINT: This packages also can be removed (--guess-all):"
   sudo deborphan --guess-all

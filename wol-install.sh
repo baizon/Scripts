@@ -12,7 +12,7 @@ WantedBy=basic.target"
 INSTALL_PATH="/etc/systemd/system/wol.service"
 
 echo "Writing config to $INSTALL_PATH"
-sudo sh -c "echo '$WOL_CONFIG' >> $INSTALL_PATH"
+sudo sh -c "echo '$WOL_CONFIG' > $INSTALL_PATH"
 
 echo "Enabling Wake On Lan Service"
 sudo systemctl enable wol.service
