@@ -1,8 +1,6 @@
 Scripts
 =======
-This repository contains a collection of my personal scripts. I use them under <a href="https://www.manjaro.org">Manjaro</a>.
-
-TODO: Complete documentation.
+This repository contains a collection of my personal scripts. I use them under <a href="https://cachyos.org/">CachyOS</a>.
 
 cleaner-arch.sh
 ===============
@@ -30,19 +28,11 @@ It contains the following cleaning components:
 
 nfs-start.sh
 ============
-Mounts and starts (with <CODE>systemctl</CODE>) a NFS. Configuration parameters:
-- <CODE>MOUNT_OPTIONS</CODE> - Mounts options of for the exports file
-- <CODE>MOVIES_DISK_PATH</CODE> - Folder path
-- <CODE>TVSHOWS_DISK_PATH</CODE> - Folder path
-- <CODE>MOVIES_NFS_PATH</CODE> - NFS path
-- <CODE>TVSHOWS_NFS_PATH</CODE> - NFS path
-- <CODE>EXPORTS_FILE_PATH</CODE> - Path of the exports config (<CODE>/etc/exports</CODE>)
+Mounts and starts (with <CODE>systemctl</CODE>) a NFS.
 
 nfs-stop.sh
 ============
-Stops, unmounts and removes the NFS. Configuration parameters:
-- <CODE>MOVIES_STRING</CODE> - NFS path
-- <CODE>TVSHOWS_STRING</CODE> - NFS path 
+Stops, unmounts and removes the NFS.
 
 toggletouchpad.sh
 =================
@@ -62,3 +52,29 @@ A simple script for my arch system, which runs <CODE>grub-mkconfig -o /boot/grub
 upgrade-ums.sh
 ===================
 A script that upgrades <a href="https://www.universalmediaserver.com">Universal Media Server</a>.
+
+llama-server.sh
+===============
+Script to run a local LLM server using llama.cpp's llama-server:
+
+Configuration parameters:
+- <CODE>MODEL</CODE> - The model to use (default: "unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF:Q4_K_XL")
+- <CODE>CONTEXT_SIZE</CODE> - Context window size (default: 64384)
+- <CODE>PORT</CODE> - Port to run the server on (default: 9931)
+
+The script requires llama.cpp to be installed and available in your PATH. It will automatically check for the presence of the llama-server command before starting.
+
+nfs-mount.sh
+============
+Script to mount NFS shares from a remote host.
+
+nfs-umount.sh
+=============
+Script to unmount all configured NFS shares.
+
+wol-install.sh
+==============
+Script to install and enable Wake-on-LAN (WoL) service:
+
+This script creates a systemd service that configures Wake-on-LAN for the eno1 network interface.
+It writes a configuration file to /etc/systemd/system/wol.service and enables it.
