@@ -6,6 +6,12 @@ CONTEXT_SIZE=64384
 PORT=9931
 # --------------------------------------------------------------
 
+if ! command -v llama-server >/dev/null 2>&1; then
+    echo "Error: llama-server command not found."
+    echo "Please ensure llama.cpp is installed and in your PATH."
+    exit 1
+fi
+
 llama-server \
     -hf $MODEL \
     -ot ".ffn_.*_exps.=CPU" \
